@@ -22,12 +22,19 @@ public class TeleopDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double leftStickY = Robot.m_oi.GetDriverRawAxis(RobotMap.Left_Stick_Y);
-    double rightStickY = Robot.m_oi.GetDriverRawAxis(RobotMap.Right_Stick_Y);
+    double leftStickY = Robot.m_oi.GetControllerRawAxis(RobotMap.Left_Stick_Y);
+    double rightStickX = Robot.m_oi.GetControllerRawAxis(RobotMap.Right_Stick_X);
 
 
-    Robot.driveTrain.setLeftMotors(leftStickY*RobotMap.Drive_Speed);
-    Robot.driveTrain.setRightMotors(rightStickY*RobotMap.Drive_Speed);
+    Robot.driveTrain.setAllMotors(leftStickY*RobotMap.Drive_Speed);
+
+    if(Right_Stick_X > 0){
+      Robot.driveTrain.setRightMotors(rightStickX*RobotMap.Drive_Speed);
+    }
+    if(Right_Stick_X < 0){
+      Robot.driveTrain.setLeftMotors(rightStickX*RobotMap.Drive_Speed);
+    }
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

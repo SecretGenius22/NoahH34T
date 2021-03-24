@@ -21,7 +21,7 @@ public class DriveTrain extends Subsystem {
   private CANSparkMax rightBackMotor = new CANSparkMax(RobotMap.Mortor_Back_Right_Id, MotorType.kBrushless);
 
   public void setLeftMotors(double speed) {
-    leftFrontMotor.set(-speed);
+    leftFrontMotor.set(speed);
     leftBackMotor.set(-speed);
 
   }
@@ -30,6 +30,14 @@ public class DriveTrain extends Subsystem {
     rightFrontMotor.set(speed);
     rightBackMotor.set(speed);
   }
+
+  public void setAllMotors(double speed) {
+    leftFrontMotor.set(speed);
+    leftBackMotor.set(-speed);
+    rightFrontMotor.set(speed);
+    rightBackMotor.set(speed);
+  }
+
 
   @Override
   public void initDefaultCommand() {

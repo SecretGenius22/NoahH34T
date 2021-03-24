@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator interface to the commands
@@ -12,11 +11,13 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
 
-private Joystick drivingStick = new Joystick(RobotMap.Joystick_Id);
+private XboxController Controller = new XboxController(RobotMap.Controller_Id);
 
-public double GetDriverRawAxis(int axis){
-  return drivingStick.getRawAxis(axis);
+public double GetControllerRawAxis(int axis){
+  return Controller.getRawAxis(axis);
 }
+
+
 
 
   //// CREATING BUTTONS
