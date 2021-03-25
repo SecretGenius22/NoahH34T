@@ -15,6 +15,8 @@ private XboxController Controller = new XboxController(RobotMap.Controller_Id);
 
 public double GetControllerRawAxis(int axis){
   return Controller.getRawAxis(axis);
+
+private Button Button_A = new Button();
 }
 
 
